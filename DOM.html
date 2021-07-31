@@ -1,0 +1,36 @@
+<body>
+  <h1>
+    THE TITLE OF YOUR WEBPAGE
+  </h1>
+  <div id="container">
+  </div>
+</body>
+
+<script>
+const container = document.querySelector('#container');
+
+const red = document.createElement('p');
+red.classList.add('red');
+red.textContent = 'Hey, I\'m red!';
+red.style.color = 'red';
+
+container.appendChild(red);
+
+const blue = document.createElement('h3');
+blue.classList.add('blue');
+blue.textContent = 'I\'m blue h3!';
+blue.style.color = 'blue'; 
+
+container.appendChild(blue);
+
+const littleDiv = document.createElement('div');
+littleDiv.setAttribute('style', 'background: pink; border-style: solid; border-color: black');
+const littleHead = document.createElement('h1');
+littleHead.textContent = 'I\'m in a div!';
+const littleP = document.createElement('p');
+littleP.textContent = 'Me too!';
+
+container.appendChild(littleDiv);
+littleDiv.appendChild(littleHead);
+littleDiv.appendChild(littleP);
+</script>

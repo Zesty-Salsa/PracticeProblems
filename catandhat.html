@@ -1,0 +1,40 @@
+<style>body { min-height: 200px }</style>
+
+<img src="http://eloquentjavascript.net/img/cat.png" id="cat" style="position: absolute">
+<img src="http://eloquentjavascript.net/img/hat.png" id="hat" style="position: absolute">
+<img src="http://eloquentjavascript.net/img/cat.png" id="cat2" style="position: absolute">
+<img src="http://eloquentjavascript.net/img/hat.png" id="hat2" style="position: absolute">
+
+<script>
+  let cat = document.querySelector("#cat");
+  let hat = document.querySelector("#hat");
+  
+  let cat2 = document.querySelector("#cat2"); 
+  let hat2 = document.querySelector("#hat2");
+  let angle = 0;
+  let altAngle = Math.PI;
+  let lastTime = null;
+  function animate(time) {
+    if (lastTime != null) angle += (time - lastTime) * 0.001;
+	if (lastTime != null) altAngle += (time - lastTime) * 0.001;
+    lastTime = time;
+    var catTop = (Math.sin(angle) * 60 + 200);
+	cat.style.top = catTop + "px";
+	var catLeft = (Math.cos(angle) * 200 + 530);
+    cat.style.left = catLeft + "px";
+	var hatTop = (Math.sin(altAngle) * 60 + 200);
+	hat.style.top =  hatTop + "px";
+	var hatLeft = (Math.cos(altAngle) * 200 + 530);
+	hat.style.left = hatLeft + "px";
+	
+	hat2.style.top = (Math.sin(angle*50) * 140) + catTop - 20 + "px";
+	hat2.style.left = (Math.cos(angle*50) * 160) + catLeft + "px";
+	cat2.style.top = (Math.sin(altAngle*(-50)) * 140) + hatTop - 20 + "px";
+	cat2.style.left = (Math.cos(altAngle*(-50)) * 160) + hatLeft + "px";
+
+    // Your extensions here.
+
+    requestAnimationFrame(animate);
+  }
+  requestAnimationFrame(animate);
+</script>

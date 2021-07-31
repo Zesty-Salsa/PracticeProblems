@@ -1,0 +1,48 @@
+<h1>Mountains</h1>
+
+<div id="mountains"></div>
+
+<script>
+  const MOUNTAINS = [
+    {name: "Kilimanjaro", height: 5895, place: "Tanzania"},
+    {name: "Everest", height: 8848, place: "Nepal"},
+    {name: "Mount Fuji", height: 3776, place: "Japan"},
+    {name: "Vaalserberg", height: 323, place: "Netherlands"},
+    {name: "Denali", height: 6168, place: "United States"},
+    {name: "Popocatepetl", height: 5465, place: "Mexico"},
+    {name: "Mont Blanc", height: 4808, place: "Italy/France"}
+  ];
+
+
+const container = document.querySelector('#mountains');
+const headingRow = document.createElement('tr');
+headingRow.setAttribute('id', 'headingRow');
+const name =  document.createElement('th');
+name.textContent = 'Name';
+const height = document.createElement('th');
+height.textContent = 'Height';
+const place = document.createElement('th');
+place.textContent = 'Place';
+headingRow.innerHTML += name.outerHTML + height.outerHTML + place.outerHTML;
+container.appendChild(headingRow);
+
+const heading = document.querySelector('#headingRow')
+
+function fillRows(array) {
+	for(let i = 0; i < array.length; i++) {
+		let newRow = document.createElement('tr');
+		newRow.classList.add('row');
+		let cellName = document.createElement('td');
+		cellName.textContent = array[i].name;
+		let cellHeight = document.createElement('td');
+		cellHeight.textContent = array[i].height;
+		let cellPlace = document.createElement('td');
+		cellPlace.textContent = array[i].place;
+		container.appendChild(newRow);
+		newRow.appendChild(cellName);
+		newRow.appendChild(cellHeight);
+		newRow.appendChild(cellPlace);
+	}
+}
+
+</script>

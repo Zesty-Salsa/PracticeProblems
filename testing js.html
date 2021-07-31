@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+
+    <title>Number guessing game</title>
+
+    <style>
+      html {
+        font-family: sans-serif;
+      }
+      body {
+        width: 50%;
+        max-width: 800px;
+        min-width: 480px;
+        margin: 0 auto;
+      }
+      .lastResult {
+        color: white;
+        padding: 3px;
+      }
+    </style>
+  </head>
+
+  <body>
+      <h1>Number guessing game</h1>
+
+      <p>We have selected a random number between 1 and 100. See if you can guess it in 10 turns or less. We'll tell you if your guess was too high or too low.</p>
+
+<div class="form">
+  <label for="guessField">Enter a guess: </label><input type="text" id="guessField" class="guessField">
+  <input type="submit" value="Submit guess" class="guessSubmit">
+</div>
+
+<div class="resultParas">
+  <p class="guesses"></p>
+  <p class="lastResult"></p>
+  <p class="lowOrHi"></p>
+</div>
+
+</body>
+
+<script>
+	function computerPlay() {
+		let randomNumber = Math.floor(Math.random()*3) + 1;
+		if(randomNumber <= 1) {
+			return computerSelection = 'rock';
+		}
+		else if (randomNumber > 1 && randomNumber <=2) {
+			return computerSelection = 'paper';
+		}
+		else {
+			return computerSelection = 'scissors';
+		}
+	}
+	
+	function playRound(playerSelection, computerSelection){
+		const selection = playerSelection.toLowerCase();
+		if (computerSelection === selection) {
+			return result = "Tie!";
+		}
+		else if (computerSelection === "rock" && selection === "scissors") {
+			return result = "Computer wins! Rock beats scissors!";
+		}
+		else if (selection === "rock" && computerSelection === "scissors") {
+			return result = "You win! Rock beats scissors!";
+		}
+		else if (computerSelection === "scissors" && selection === "paper") {
+			return result = "Computer wins! Scissors beats paper.";
+		}
+		else if (selection === "scissors" && computerSelection === "paper") {
+			return result = "You win! Scissors beats paper.";
+		}
+		else if (computerSelection === "paper" && selection === "rock") {
+			return result = "Computer wins!";
+		}
+		else if (selection === "paper" && computerSelection === "rock") {
+			return result = "You win!";
+		}
+		else {
+			return result="Something went wrong!"
+		}
+		return result;
+		console.log(result);
+	}
+	
+	function game(){
+		for (i=0; i<5; i++){
+			computerPlay();
+			let playerSelection = prompt("Enter \"rock\", \"paper\", or \"scissors\".")
+			playRound(playerSelection, computerSelection);
+			console.log(result);
+		}
+	}
+	
+</script>
+</html>
